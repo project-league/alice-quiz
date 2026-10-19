@@ -3,6 +3,6 @@ import { defineConfig } from 'vite'
 
 // GitHub Pages serves the app from /<repo-name>/
 export default defineConfig({
-  base: '/alice-madness-quiz/',
+  base: '/alice-quiz/',
   plugins: [react()],
 })

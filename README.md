@@ -28,11 +28,11 @@ npm run dev
 
 Workflow `.github/workflows/deploy.yml` buduje i publikuje przy każdym pushu na `main`.
 
-1. Repo musi nazywać się `alice-madness-quiz` (tak ustawiony jest `base` w `vite.config.ts`).
+1. Repo: `project-league/alice-quiz` — jeśli zmienisz nazwę repo, zmień też `base` w `vite.config.ts`.
 2. Settings → Pages → Source: **GitHub Actions**.
 3. Settings → Secrets and variables → Actions: dodaj sekrety `VITE_FIREBASE_*`.
 
-Adres: `https://<user>.github.io/alice-madness-quiz/`, admin: `.../alice-madness-quiz/admin-losowanie`.
+Adres: `https://project-league.github.io/alice-quiz/`, admin: `https://project-league.github.io/alice-quiz/admin-losowanie`.
 
 ## Do zrobienia
 
