@@ -1,0 +1,22 @@
+[
+  { "id": "q01", "question": "Za kim Alicja wpada do króliczej nory?", "answers": ["Za Białym Królikiem", "Za Kotem z Cheshire", "Za Szalonym Kapelusznikiem", "Za Gąsienicą"], "correct": 0 },
+  { "id": "q02", "question": "Co jest napisane na buteleczce, którą znajduje Alicja?", "answers": ["Zjedz mnie", "Wypij mnie", "Otwórz mnie", "Nie ruszaj"], "correct": 1 },
+  { "id": "q03", "question": "Kto pali fajkę wodną, siedząc na grzybie?", "answers": ["Dodo", "Gryf", "Gąsienica", "Suseł"], "correct": 2 },
+  { "id": "q04", "question": "Który bohater potrafi znikać, zostawiając tylko uśmiech?", "answers": ["Marcowy Zając", "Kot z Cheshire", "Biały Królik", "Walet Kier"], "correct": 1 },
+  { "id": "q05", "question": "Jaki okrzyk najczęściej wydaje Królowa Kier?", "answers": ["Herbaty!", "Spóźnię się!", "Ściąć mu głowę!", "Na zdrowie!"], "correct": 2 },
+  { "id": "q06", "question": "Kto razem z Kapelusznikiem urządza szalone przyjęcie przy herbacie?", "answers": ["Marcowy Zając", "Książę", "Żółw Niby", "Kucharka"], "correct": 0 },
+  { "id": "q07", "question": "Kto śpi w imbryku podczas herbacianego przyjęcia?", "answers": ["Dodo", "Suseł", "Kot z Cheshire", "Bill Jaszczurka"], "correct": 1 },
+  { "id": "q08", "question": "Czym gra się w krokieta u Królowej Kier?", "answers": ["Kijami i piłkami", "Flamingami i jeżami", "Parasolami i jabłkami", "Łyżkami i jajkami"], "correct": 1 },
+  { "id": "q09", "question": "Kto napisał „Alicję w Krainie Czarów”?", "answers": ["Lewis Carroll", "Roald Dahl", "J.M. Barrie", "C.S. Lewis"], "correct": 0 },
+  { "id": "q10", "question": "Dokończ zagadkę Kapelusznika: „Czym kruk przypomina...?”", "answers": ["Krzesło", "Biurko", "Szafę", "Stół"], "correct": 1 },
+  { "id": "q11", "question": "Kogo oskarżono o kradzież tart Królowej?", "answers": ["Białego Królika", "Waleta Kier", "Kapelusznika", "Alicję"], "correct": 1 },
+  { "id": "q12", "question": "Jak nazywa się kontynuacja „Alicji w Krainie Czarów”?", "answers": ["Alicja po drugiej stronie lustra", "Powrót do Krainy Czarów", "Alicja i Czerwona Królowa", "Kraina Snów"], "correct": 0 },
+  { "id": "q13", "question": "Który ptak organizuje „wyścig komitetowy”?", "answers": ["Flaming", "Sowa", "Dodo", "Papuga"], "correct": 2 },
+  { "id": "q14", "question": "Co Biały Królik ciągle sprawdza?", "answers": ["Kalendarz", "Zegarek kieszonkowy", "Mapę", "Listę gości"], "correct": 1 },
+  { "id": "q15", "question": "Ile lat ma Alicja w książce Carrolla?", "answers": ["5", "7", "10", "12"], "correct": 1 },
+  { "id": "q16", "question": "Kto płacze, bo kiedyś był „prawdziwym żółwiem”?", "answers": ["Gryf", "Żółw Niby", "Książę", "Suseł"], "correct": 1 },
+  { "id": "q17", "question": "Jak nazywa się jaszczurka, którą Alicja wykopuje z komina?", "answers": ["Bill", "Pat", "Tom", "Jim"], "correct": 0 },
+  { "id": "q18", "question": "Którą godzinę wiecznie pokazuje zegar u Kapelusznika?", "answers": ["Północ", "Dwunastą", "Szóstą — porę herbaty", "Piątą"], "correct": 2 },
+  { "id": "q19", "question": "Co Alicja je, żeby urosnąć?", "answers": ["Ciasteczko", "Jabłko", "Tartę", "Cukierek"], "correct": 0 },
+  { "id": "q20", "question": "Jak kończy się przygoda Alicji w Krainie Czarów?", "answers": ["Zostaje królową", "Budzi się ze snu", "Wraca przez lustro", "Zostaje w Krainie"], "correct": 1 }
+]

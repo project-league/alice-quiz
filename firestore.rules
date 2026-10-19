@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /results/{id} {
+      // Anyone can submit a result, but only in the expected shape.
+      allow create: if request.resource.data.keys().hasOnly(['nick', 'score', 'total', 'day', 'createdAt'])
+        && request.resource.data.nick is string
+        && request.resource.data.nick.size() > 0
+        && request.resource.data.nick.size() <= 30
+        && request.resource.data.score is int
+        && request.resource.data.score >= 0
+        && request.resource.data.score <= request.resource.data.total
+        && request.resource.data.total == 10
+        && request.resource.data.day is string
+        && request.resource.data.createdAt == request.time;
+      // Needed by /admin-losowanie (no auth yet).
+      allow read: if true;
+      allow update, delete: if false;
+    }
+  }
+}
