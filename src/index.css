@@ -21,6 +21,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/* Keeps text legible over the lighter photo background. */
+.screen-content { text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6); }
+.btn-primary { text-shadow: none; }
+
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); }
 button, input { font: inherit; color: inherit; }
@@ -41,8 +45,8 @@ button, input { font: inherit; color: inherit; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 50% 40%, rgba(11, 15, 20, 0.55), rgba(11, 15, 20, 0.85) 75%),
-    linear-gradient(to bottom, rgba(11, 15, 20, 0.35), rgba(11, 15, 20, 0.9));
+    radial-gradient(ellipse at 50% 40%, rgba(11, 15, 20, 0.2), rgba(11, 15, 20, 0.55) 80%),
+    linear-gradient(to bottom, rgba(11, 15, 20, 0.15), rgba(11, 15, 20, 0.6));
 }
 .screen-content {
   display: flex;
