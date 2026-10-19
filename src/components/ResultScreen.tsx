@@ -1,8 +1,7 @@
 import ArrowIcon from './ArrowIcon'
 import Screen from './Screen'
 
-// TODO: confirm the Glitch Space Instagram profile URL
-const INSTAGRAM_URL = 'https://www.instagram.com/'
+const INSTAGRAM_URL = 'https://www.instagram.com/glitch.space/'
 
 type Props = {
   nick: string
