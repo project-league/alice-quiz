@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import ArrowIcon from '../components/ArrowIcon'
+import Screen from '../components/Screen'
 import { DRAW_MIN_SCORE, QUIZ_LENGTH, dayKey, getEligibleResults, type QuizResult } from '../lib/results'
 
 export default function AdminDrawPage() {
@@ -31,48 +33,70 @@ export default function AdminDrawPage() {
   }
 
   return (
-    <main>
-      <h1>Losowanie</h1>
-      <p className="muted">
+    <Screen>
+      <p className="eyebrow">
+        <span className="eyebrow-line" />
+        Panel losowania
+      </p>
+      <h1 className="display">
+        Losowanie <em>nagrody</em>
+      </h1>
+      <p className="lead">
         Wyniki z wybranego dnia z co najmniej {DRAW_MIN_SCORE}/{QUIZ_LENGTH} pkt.
       </p>
 
-      <label htmlFor="day">Dzień</label>
-      <input id="day" type="date" value={day} onChange={(e) => setDay(e.target.value)} />
+      <div className="admin-controls">
+        <div>
+          <label htmlFor="day" className="field-label">
+            Dzień
+          </label>
+          <div className="field" style={{ marginTop: 8 }}>
+            <input id="day" type="date" value={day} onChange={(e) => setDay(e.target.value)} />
+          </div>
+        </div>
+        <button type="button" className="btn-secondary" onClick={() => load(day)}>
+          Odśwież
+        </button>
+      </div>
 
-      {loading && <p className="muted">Ładowanie…</p>}
-      {error && <p className="error">{error}</p>}
+      {loading && <p className="status">Ładowanie…</p>}
+      {error && <p className="status error">{error}</p>}
 
       {!loading && !error && (
         <>
-          <p>Kwalifikujące się wyniki: {results.length}</p>
-          <button onClick={draw} disabled={results.length === 0}>
-            {winner ? 'Losuj ponownie' : 'Losuj'}
-          </button>
-          <button onClick={() => load(day)}>Odśwież</button>
+          <p className="admin-count">
+            Kwalifikujące się wyniki: <strong>{results.length}</strong>
+          </p>
 
           {winner && (
-            <div className="winner">
-              <p className="muted">Zwycięzca</p>
-              <h2>{winner.nick}</h2>
-              <p>
+            <div className="winner" aria-live="polite">
+              <span className="score-label">Zwycięzca</span>
+              <p className="winner-name">{winner.nick}</p>
+              <p className="winner-meta">
                 {winner.score}/{winner.total} pkt
                 {winner.createdAt && ` · ${winner.createdAt.toDate().toLocaleTimeString('pl-PL')}`}
               </p>
             </div>
           )}
 
+          <button type="button" className="btn-primary" onClick={draw} disabled={results.length === 0}>
+            {winner ? 'Losuj ponownie' : 'Losuj zwycięzcę'} <ArrowIcon />
+          </button>
+
           {results.length > 0 && (
-            <ul className="results">
+            <ul className="results-list">
               {results.map((r) => (
-                <li key={r.id} className={r.id === winner?.id ? 'highlight' : undefined}>
-                  {r.nick} — {r.score}/{r.total}
+                <li key={r.id} className={r.id === winner?.id ? 'is-winner' : undefined}>
+                  <span className="nick">{r.nick}</span>
+                  <span>
+                    {r.score}/{r.total}
+                  </span>
                 </li>
               ))}
             </ul>
           )}
         </>
       )}
-    </main>
+    </Screen>
   )
 }

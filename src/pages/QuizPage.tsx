@@ -1,9 +1,11 @@
-import { useState, type FormEvent } from 'react'
+import { useState } from 'react'
+import QuestionScreen from '../components/QuestionScreen'
+import ResultScreen from '../components/ResultScreen'
+import StartScreen from '../components/StartScreen'
 import { drawQuestions, type Question } from '../lib/questions'
 import { QUIZ_LENGTH, saveResult } from '../lib/results'
 
 type Stage = 'start' | 'quiz' | 'done'
-type SaveState = 'saving' | 'saved' | 'error'
 
 export default function QuizPage() {
   const [stage, setStage] = useState<Stage>('start')
@@ -11,10 +13,10 @@ export default function QuizPage() {
   const [questions, setQuestions] = useState<Question[]>([])
   const [index, setIndex] = useState(0)
   const [score, setScore] = useState(0)
-  const [saveState, setSaveState] = useState<SaveState>('saving')
+  const [saveFailed, setSaveFailed] = useState(false)
 
-  function start(e: FormEvent) {
-    e.preventDefault()
+  function start(name: string) {
+    setNick(name)
     setQuestions(drawQuestions(QUIZ_LENGTH))
     setIndex(0)
     setScore(0)
@@ -23,80 +25,44 @@ export default function QuizPage() {
 
   async function finish(finalScore: number) {
     setStage('done')
-    setSaveState('saving')
+    setSaveFailed(false)
     try {
-      await saveResult(nick.trim(), finalScore, questions.length)
-      setSaveState('saved')
+      await saveResult(nick, finalScore, questions.length)
     } catch (err) {
       console.error(err)
-      setSaveState('error')
+      setSaveFailed(true)
     }
   }
 
   function answer(choice: number) {
     const nextScore = score + (choice === questions[index].correct ? 1 : 0)
     setScore(nextScore)
+    window.scrollTo(0, 0)
     if (index + 1 < questions.length) setIndex(index + 1)
     else finish(nextScore)
   }
 
-  if (stage === 'start') {
-    return (
-      <main>
-        <h1>Alice Madness Quiz</h1>
-        <p>{QUIZ_LENGTH} losowych pytań. Wpisz nick i zaczynamy.</p>
-        <form onSubmit={start}>
-          <label htmlFor="nick">Nick</label>
-          <input
-            id="nick"
-            value={nick}
-            onChange={(e) => setNick(e.target.value)}
-            maxLength={30}
-            required
-            autoFocus
-          />
-          <button type="submit" disabled={!nick.trim()}>
-            Start
-          </button>
-        </form>
-      </main>
-    )
-  }
+  if (stage === 'start') return <StartScreen onStart={start} />
 
   if (stage === 'quiz') {
-    const q = questions[index]
     return (
-      <main>
-        <p className="muted">
-          Pytanie {index + 1} / {questions.length}
-        </p>
-        <h2>{q.question}</h2>
-        <div className="answers">
-          {q.answers.map((a, i) => (
-            <button key={i} onClick={() => answer(i)}>
-              {a}
-            </button>
-          ))}
-        </div>
-      </main>
+      <QuestionScreen
+        key={index}
+        question={questions[index]}
+        number={index + 1}
+        total={questions.length}
+        onAnswer={answer}
+      />
     )
   }
 
   return (
-    <main>
-      <h1>
-        {score} / {questions.length}
-      </h1>
-      <p>Dzięki, {nick.trim()}!</p>
-      {saveState === 'saving' && <p className="muted">Zapisywanie wyniku…</p>}
-      {saveState === 'saved' && <p className="muted">Wynik zapisany.</p>}
-      {saveState === 'error' && (
-        <p className="error">
-          Nie udało się zapisać wyniku.{' '}
-          <button onClick={() => finish(score)}>Spróbuj ponownie</button>
-        </p>
-      )}
-      <button onClick={() => setStage('start')}>Zagraj jeszcze raz</button>
-    </main>
+    <ResultScreen
+      nick={nick}
+      score={score}
+      total={questions.length}
+      saveFailed={saveFailed}
+      onRetrySave={() => finish(score)}
+    />
   )
 }
