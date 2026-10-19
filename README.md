@@ -43,4 +43,12 @@ Adres: `https://project-league.github.io/alice-quiz/`, admin: `https://project-l
 ## Do zrobienia
 
 - Designy.
-- `/admin-losowanie` nie ma zabezpieczenia — każdy, kto zna adres, widzi listę i może losować.
+- `/admin-losowanie` chroni tylko proste hasło (hash w `VITE_ADMIN_PASSWORD_HASH`). To słabe zabezpieczenie: hash jest w kodzie strony, a reguły Firestore wciąż pozwalają każdemu czytać wyniki. Docelowo: Firebase Auth + reguły z listą adresów.
+
+## Zmiana hasła do /admin-losowanie
+
+```bash
+printf %s "nowe-haslo" | shasum -a 256
+```
+
+Wynik wklej do `.env` jako `VITE_ADMIN_PASSWORD_HASH=...` i zrób `npm run deploy`.
