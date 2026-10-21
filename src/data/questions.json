@@ -25,7 +25,6 @@
   { "id": "m24", "question": "Kogo w Krainie Czarów uosabia Lalkarz (Dollmaker)?", "answers": ["Kapelusznika", "Radcliffe'a", "Białego Królika", "Dr. Bumby'ego"], "correct": 3 },
   { "id": "m25", "question": "Kogo Alice musi poskładać z części w Domenie Kapelusznika?", "answers": ["Kapelusznika", "Marcowego Zająca", "Susła", "Gąsienicę"], "correct": 0 },
   { "id": "m26", "question": "Jak nazywa się podwodny rozdział gry?", "answers": ["Oriental Grove", "Deluded Depths", "Queensland", "Vale of Tears"], "correct": 1 },
-  { "id": "m27", "question": "W którym rozdziale Alice spotyka Gąsienicę?", "answers": ["Hatter's Domain", "Deluded Depths", "Oriental Grove", "Dollhouse"], "correct": 2 },
   { "id": "m28", "question": "Czyją domeną jest Queensland?", "answers": ["Kapelusznika", "Lalkarza", "Gąsienicy", "Królowej Kier"], "correct": 3 },
   { "id": "m29", "question": "Kto prowadzi Alice przez Krainę Czarów i daje jej enigmatyczne rady?", "answers": ["Kot z Cheshire", "Biały Królik", "Żółw Niby", "Suseł"], "correct": 0 },
   { "id": "m30", "question": "Na której londyńskiej stacji Alice konfrontuje się z dr. Bumbym w finale?", "answers": ["King's Cross", "Moorgate", "Paddington", "Waterloo"], "correct": 1 }
